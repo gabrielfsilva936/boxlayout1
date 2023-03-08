@@ -7,11 +7,13 @@ public class Teste {
 
     public static void main(String[] args){
 
-        x_axis();
-        y_axis();
-        line_axis();
-        page_axis();
+        rigid();
 
+        //x_axis();
+        //y_axis();
+        //line_axis();
+        //page_axis();
+        
     }
 
     //Constante X_AXIS: Os componentes são orientados da esquerda para a direita da tela, na horizontal
@@ -136,6 +138,25 @@ public class Teste {
         //Comando que irá redimensionar a janela de acordo com o tamanho dos componentes
         frame.pack();
         //Comando que irá deixar o frame visível para o usuário
+        frame.setVisible(true);
+    }
+    public static void rigid(){
+        JFrame frame = new JFrame("Exemplo Y_AXIS");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel painel = new JPanel();
+        painel.setLayout(new BoxLayout(painel, BoxLayout.Y_AXIS));
+        JButton btn1 = new JButton("Botão 1");
+        JButton btn2 = new JButton("Botão 2");
+        JButton btn3 = new JButton("Botão3");
+        JTextField txtField = new JTextField("Campo de texto");
+        painel.add(btn1);
+        painel.add(btn2);
+        //Adicionando uma área "vazia" com dimensões 30 x 30
+        painel.add(Box.createRigidArea(new Dimension(30, 30)));
+        painel.add(btn3);
+        painel.add(txtField);
+        frame.setContentPane(painel);
+        frame.pack();
         frame.setVisible(true);
     }
 }
